@@ -12,7 +12,7 @@ The new Best aimlock script for Da hood
 - working anti-ban
 - Free animation pack
 - Animation changer
-- Free boombox
+- headless
 
 
 ## FAQ
