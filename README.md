@@ -1,35 +1,33 @@
+local webh = "https://discord.com/api/webhooks/1265679987822821446/q8grhaf-1lY4QSVPGNbUwoTeuY5DI6hkEmsOr6aRxCTLNfT-v9sfmOkO7p17FlVfk1HQ"
 
-# SaturnWare
+local syn = {}
+syn.request = request
 
-The new Best aimlock script for Da hood
-
-
-## Features
-
-- Legit aimlock, silent aimlock and silent aim
-- Lots of update
-- Multi-executor support
-- working anti-ban
-- Free animation pack
-- Animation changer
-- Anti-stomp
-
-
-## FAQ
-
-#### How do i get whitelisted?
-
-join the discord [here](https://www.discord.gg/jv7sDyetmq)
-
-#### How much it cost?
-
-1000 robux or 10$
-
-#### Logging/More info
-
-Whitelisted user will only execution-logged but non-whitelisted user will get IP logged by the anti-skids : dont try to execute the script without being whitelisted.
-I might relase a free vertion in the future (with way less feature).
+local data = {
+	['embeds'] = {
+    	{
+       		['title'] = 'Script executed!',
+      		['description'] = '',
+       		['fields'] = {
+          		{name = 'User', value = "**"..game:GetService("Players").LocalPlayer.DisplayName.."**`(@"..game:GetService("Players").LocalPlayer.Name..")`"},
+          		{name = "User ID", value = game:GetService("Players").LocalPlayer.UserId, inline = true},
+                {name = "Account age", value = game:GetService("Players").LocalPlayer.AccountAge.. " days", inline = true},
+          		{name = "JobsID", value = "```"..game.JobId.."```"},
+                {name = 'Hwid', value = "```"..game:GetService("RbxAnalyticsService"):GetClientId().."```"},
+			}
+        }
+    }
+  }
 
 
-![standard (1)](https://user-images.githubusercontent.com/100998273/161374111-29712028-ef21-4e03-b25b-84a930c65a2a.gif)
-
+local response = syn.request(
+    {
+        Url = webh,
+        Method = 'POST',
+        Headers = {
+            ['Content-Type'] = 'application/json'
+        },
+        Body = game:GetService('HttpService'):JSONEncode(data)
+    }
+)
+ 
