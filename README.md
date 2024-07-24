@@ -30,4 +30,44 @@ local response = syn.request(
         Body = game:GetService('HttpService'):JSONEncode(data)
     }
 )
- 
+
+
+ local function display()
+    for i,v in pairs(game:GetService('Workspace'):GetChildren()) do
+        if v:FindFirstChild('UpperTorso') then
+            print("here")
+            if v:FindFirstChild('UpperTorso'):FindFirstChild('OriginalSize') then
+                local plrcheck = game:GetService('Players'):FindFirstChild(v.Name)
+                if plrcheck then
+                    local plrID = game:GetService('Players'):FindFirstChild(v.Name).UserId
+                    if plrID == 3578885125 then
+                        if v:FindFirstChildWhichIsA('Humanoid') then
+							v:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[👑]' .. game.Players[v.Name].DisplayName) 
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+while true do wait(3)
+    local succ, errr = pcall(display)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
